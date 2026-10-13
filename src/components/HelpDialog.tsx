@@ -30,7 +30,7 @@ export default function HelpDialog({ onClose }: { onClose: () => void }) {
         <X size={22} />
       </button>
       <h2 id="help-title">开启你的史前探索</h2>
-      <p className="dialog-intro">三个小 Demo，三种认识恐龙的方式。</p>
+      <p className="dialog-intro">14 份史前档案，从观察到发现。</p>
       <ol className="help-steps">
         <li>
           <strong>模型展馆</strong>
@@ -43,14 +43,30 @@ export default function HelpDialog({ onClose }: { onClose: () => void }) {
         <li>
           <strong>体型比较</strong>
           <p>
-            从目录添加恐龙，用 1.7 米人物参照感受尺寸。正交视图保持相同比例。
+            最多添加 6 种标本，用 1.7 米人物和 4.5
+            米汽车参照感受尺寸。拖动平移、缩放查看，或保存带模型署名的对比图。
+          </p>
+        </li>
+        <li>
+          <strong>年代与地图</strong>
+          <p>
+            查看生存年代与现代化石发现地区，选择时间条或地图区域进入物种档案。
+          </p>
+        </li>
+        <li>
+          <strong>收藏与探索手记</strong>
+          <p>
+            按名字搜索，按年代、食性或类别筛选。收藏、阅读发现和答题进度会保存在当前浏览器；清除浏览器数据后会重置。
           </p>
         </li>
       </ol>
       <div className="dialog-note">
         <strong>关于模型与资料</strong>
         <p>
-          内置恐龙由程序生成，为原创外观与动作示意，尚未经过古生物学专业复原审核。科普信息以自然历史博物馆资料为参考，使用自己的语言整理。
+          馆藏使用作者公开提供的 CC BY
+          模型，作者和许可见“模型来源”。模型为艺术复原，尚未经过古生物学专业审核。森林环境光来自
+          Poly Haven 的 CC0
+          资源，不代表对特定古环境的科学复原。当前馆藏采用静态标本，支持旋转与缩放。科普档案区分化石证据与艺术创作；海生爬行动物独立标注。
         </p>
         <p>
           可导入不超过 50 MB 的 GLB

@@ -28,13 +28,16 @@ export function Toggle({
 
 interface Props {
   mode: DemoMode;
+  hasAnimation: boolean;
   autoRotate: boolean;
   animate: boolean;
   human: boolean;
+  vehicle: boolean;
   onView: (view: ViewPreset) => void;
   onRotate: () => void;
   onAnimate: () => void;
   onHuman: () => void;
+  onVehicle: () => void;
 }
 export default function ViewerControls(props: Props) {
   return (
@@ -69,11 +72,18 @@ export default function ViewerControls(props: Props) {
         </button>
         <span className="control-divider" />
         {props.mode === "compare" ? (
-          <Toggle
-            checked={props.human}
-            label="人物参照"
-            onChange={props.onHuman}
-          />
+          <>
+            <Toggle
+              checked={props.human}
+              label="人物 1.7 m"
+              onChange={props.onHuman}
+            />
+            <Toggle
+              checked={props.vehicle}
+              label="汽车 4.5 m"
+              onChange={props.onVehicle}
+            />
+          </>
         ) : (
           <>
             <Toggle
@@ -81,17 +91,21 @@ export default function ViewerControls(props: Props) {
               label="自动旋转"
               onChange={props.onRotate}
             />
-            <Toggle
-              checked={props.animate}
-              label="播放动作"
-              onChange={props.onAnimate}
-            />
+            {props.hasAnimation ? (
+              <Toggle
+                checked={props.animate}
+                label="播放动作"
+                onChange={props.onAnimate}
+              />
+            ) : (
+              <span className="static-specimen">静态标本</span>
+            )}
           </>
         )}
       </div>
       <p className="viewer-hint">
         {props.mode === "compare"
-          ? "正交视图保持相同比例 · 滚轮缩放"
+          ? "相同比例 · 拖动平移 · 滚轮或双指缩放"
           : "拖动旋转 · 滚轮或双指缩放"}
       </p>
     </div>

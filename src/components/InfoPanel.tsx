@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ArrowRight, Check, ExternalLink, Lightbulb } from "lucide-react";
 import { DINOSAURS } from "../data/dinosaurs";
 import type { DemoMode, Dinosaur, SpeciesId } from "../data/dinosaurs";
+import SpeciesDossier from "./SpeciesDossier";
+import { recordQuiz } from "../data/learningStore";
 
 interface Props {
   dino: Dinosaur;
@@ -39,7 +41,7 @@ function Quiz({ dino }: { dino: Dinosaur }) {
                   answer === i ? (correct ? "correct" : "incorrect") : ""
                 }
                 disabled={answer !== null}
-                onClick={() => setAnswer(i)}
+                onClick={() => { setAnswer(i); if (i === dino.question.answer) recordQuiz(dino.id); }}
               >
                 <span>{String.fromCharCode(65 + i)}</span>
                 {option}
@@ -108,7 +110,7 @@ export default function InfoPanel(props: Props) {
               <div className="length-track">
                 <span
                   style={{
-                    width: `${(d.length / 22) * 100}%`,
+                    width: `${(d.length / Math.max(...DINOSAURS.map((item) => item.length))) * 100}%`,
                     backgroundColor: d.color,
                   }}
                 />
@@ -122,7 +124,7 @@ export default function InfoPanel(props: Props) {
               ? `${Math.max(...selected.map((d) => d.length)) / Math.min(...selected.map((d) => d.length)) < 2 ? "体型接近，也各有不同。" : "一眼看见，体型的差距。"}`
               : "加一位居民，一起比较。"}
           </strong>
-          <p>点击左侧目录可添加或移除恐龙。</p>
+          <p>从目录添加或移除标本，一次最多比较 6 种。可用上方预设快速选择。</p>
         </div>
         <div className="info-divider" />
         <p className="small-note">
@@ -149,11 +151,15 @@ export default function InfoPanel(props: Props) {
         <div className="discovery-progress">
           <span>探索进度</span>
           <strong>
-            {props.visited.length} <span>/ 3</span>
+            {props.visited.length} <span>/ {dino.hotspots.length}</span>
           </strong>
         </div>
         <div className="progress-track">
-          <span style={{ width: `${(props.visited.length / 3) * 100}%` }} />
+          <span
+            style={{
+              width: `${(props.visited.length / dino.hotspots.length) * 100}%`,
+            }}
+          />
         </div>
         <div className="hotspot-list">
           {dino.hotspots.map((h, i) => (
@@ -227,13 +233,28 @@ export default function InfoPanel(props: Props) {
         target="_blank"
         rel="noreferrer"
       >
-        资料来源：自然历史博物馆
+        物种资料来源
         <ExternalLink size={13} />
       </a>
       <p className="small-note">
         {dino.age}
         <br />
-        尺寸为代表性估计，外观与动作为示意。
+        尺寸为代表性估计，模型为艺术复原。
+      </p>
+      <SpeciesDossier id={dino.id} />
+      <p className="model-credit">
+        <a href={dino.asset.url} target="_blank" rel="noreferrer">
+          3D 模型：{dino.asset.author}
+        </a>
+        <br />
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          CC BY 4.0
+        </a>{" "}
+        · 已优化显示，修改说明见模型来源
       </p>
     </aside>
   );

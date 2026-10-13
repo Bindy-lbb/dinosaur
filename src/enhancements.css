@@ -1,0 +1,155 @@
+.atlas-launch {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 9px 0;
+}
+.asset-manifest-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  text-decoration: underline;
+  margin-top: 16px;
+}
+.mode-compare .scale-label.human-label {
+  display: none;
+}
+.header-actions {
+  gap: 15px;
+}
+.compare-presets {
+  position: absolute;
+  top: 163px;
+  left: 42px;
+  right: 28px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  z-index: 3;
+}
+.compare-presets button {
+  border: 1px solid #b9c4b5;
+  background: #f6f4e9e8;
+  padding: 9px 12px;
+  border-radius: 24px;
+  font-size: 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  min-height: 38px;
+}
+.compare-presets button:hover {
+  background: #e2e8d9;
+}
+.compare-presets button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.species-dossier {
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.species-dossier h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+}
+.dossier-taxonomy {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 8px 0 17px;
+}
+.species-dossier details {
+  border-bottom: 1px solid var(--line);
+}
+.species-dossier summary {
+  cursor: pointer;
+  font-size: 15px;
+  padding: 14px 0;
+  line-height: 1.5;
+}
+.species-dossier details p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #526152;
+  padding: 0 0 18px;
+}
+.dossier-sources {
+  display: grid;
+  gap: 10px;
+  padding-top: 20px;
+}
+.dossier-sources h4 {
+  font-size: 13px;
+}
+.dossier-sources a {
+  font-size: 12px;
+  line-height: 1.7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dossier-sources svg {
+  flex-shrink: 0;
+}
+.marine-badge {
+  position: absolute;
+  top: 165px;
+  left: 43px;
+  z-index: 3;
+  border: 1px solid #b8c9c4;
+  background: #dce9e4;
+  border-radius: 24px;
+  padding: 11px 16px;
+  font-size: 13px;
+  color: #365d59;
+}
+@media (max-width: 1200px) {
+  .atlas-launch span {
+    display: none;
+  }
+  .atlas-launch {
+    padding: 9px;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .atlas-launch {
+    padding: 7px;
+  }
+  .header-actions {
+    gap: 1px;
+  }
+  .import-button {
+    padding: 9px;
+  }
+  .compare-presets {
+    top: 132px;
+    left: 22px;
+    right: 22px;
+    gap: 6px;
+  }
+  .compare-presets button {
+    font-size: 11px;
+    padding: 7px 10px;
+    min-height: 34px;
+  }
+  .marine-badge {
+    top: 128px;
+    left: 23px;
+    font-size: 11px;
+  }
+  .species-dossier {
+    margin-top: 24px;
+  }
+  .mode-compare .viewer-controls .control-row {
+    flex-wrap: wrap;
+  }
+}

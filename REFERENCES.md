@@ -23,3 +23,18 @@
 - Wikimedia Commons 的旧 Brachiosaurus BW.jpg 明确标注准确性争议，不用作形体标准。
 - Sketchfab 上说明来自 Prehistoric Kingdom 或 Jurassic World 游戏的模型，不能仅依据上传者标注的 CC 许可认定已获得游戏权利方授权，因此没有引入。
 - 第三方模型仍需核对原作者与来源、商用和网页展示许可、重分发限制及 NoAI 条件。
+
+## 2026-10-13 实际采用的 3D 资产
+
+已使用真实带贴图 GLB 替代程序生成模型；详细来源、修改说明、SHA-256 和许可记录见 ATTRIBUTION.md 与 public/models/credits.json。
+甲龙科普来源：https://www.nhm.ac.uk/discover/dino-directory/Ankylosaurus.html
+此前的 AI 参考图不是当前交互主模型。
+
+
+## 新增物种（2026-10-13）
+
+- 棘龙： https://www.nhm.ac.uk/discover/dino-directory/spinosaurus.html — 展示体长 14 m，白垩纪晚期，北非，水域习性仍有争论。
+- 恐手龙： https://www.nhm.ac.uk/discover/dino-directory/Deinocheirus.html — 展示体长 10 m，蒙古，杂食性。
+- 鲨齿龙： https://www.nhm.ac.uk/discover/dino-directory/carcharodontosaurus.html — 展示体长 12.5 m，北非，肉食性。
+
+知识文字为重新编写的中文概述；模型许可及修改记录见 ATTRIBUTION.md。以上馆藏是艺术复原，不能代替最新科研复原。

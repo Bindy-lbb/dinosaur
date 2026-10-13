@@ -1,50 +1,66 @@
 # PALEO · 史前档案
 
-三个可交互的恐龙科普展示 Demo，使用 React、TypeScript、Vite 和 Three.js。
+本地恐龙 3D 科普 Demo，React + TypeScript + Three.js + Vite。
 
 ## 启动
 
 ```powershell
-cd E:\my-projects\dinosaur\paleo-demo
 npm install
-npm run dev
+npm run dev -- --port 5173
 ```
 
-打开命令输出的本地地址。`npm run build` 进行类型检查并构建；`npm run preview` 预览构建结果。
+访问 http://127.0.0.1:5173/ 。`npm run build` 检查 TypeScript 并生成静态文件。
 
-## 三个 Demo
+## 当前版本
 
-- `/?demo=museum`：三角龙、霸王龙、腕龙；拖动旋转、缩放、正面/侧面/重置视角、自动旋转和简化动作。
-- `/?demo=explore`：跟随三维模型的身体标记、独立文字入口、知识卡片、探索进度与小测验。
-- `/?demo=compare`：选择一到三种恐龙，用同一单位与正交相机比较，附 1.7 米人物参照。
+- 14 个带纹理的 GLB 馆藏条目：13 个恐龙条目，以及海生爬行动物海王龙。
+- 模型展馆：鼠标旋转、缩放、正侧面视角，森林环境 / 纯净展馆切换。
+- 科普探索：每个馆藏三个知识标记及小测验；物种档案补充发现、生活环境、取食、证据与参考资料。
+- 体型比较：最多选择 6 种标本，正交投影保持相同比例；提供 1.7 m 人物与 4.5 m 汽车参照、快速组合、平移缩放，以及包含署名和来源的 PNG 导出。长度均为教学用近似值。
+- 年代与地图：交互时间条、现代发现地点与地区筛选，可直接进入物种档案。
+- 馆藏检索：中文名和拉丁名搜索，按年代、食性和动物类别筛选。
+- 收藏与探索手记：收藏、已看物种、知识标记及正确答题进度保存在当前浏览器，附主题探索路线；清理浏览器数据后会重置，不提供账号同步。
+- 当前 14 个馆藏均为静态模型。霸王龙已换为 Pedro B. Goulart 原作中的独立模型，恢复中立站姿，避免卷尾动作影响体型比较。
+- 手机端馆藏目录可左右滑动，桌面目录可滚动；支持通过 `?demo=museum&species=spinosaurus` 等链接直接打开物种。
+- 可导入不超过 50 MB、包含贴图的 GLB，浏览器本地解析。
 
-点击展示区的“图例参考”查看三种恐龙的写实视觉方向、原始资料链接和形体说明。图例是内置 ImageGen 新生成的二维艺术复原参考，能旋转的三维模型仍为原创示意模型。
+模型、皮肤贴图与 HDRI 均保存于 public，运行时无需连接 Sketchfab 或 Hugging Face。按当前物种加载资产；切换后释放 GPU 资源，原始文件缓存在当前页面内。
 
-可加 `&species=triceratops`、`tyrannosaurus` 或 `brachiosaurus` 指定默认物种。
+## 馆藏清单
 
-## 导入 Tripo / Blender 模型
+| 馆藏 | 展示体长 | 模型作者 |
+| --- | --- | --- |
+| 三角龙 Triceratops | 9 m | wojciechmiedziocha |
+| 霸王龙 Tyrannosaurus | 12 m | Pedro B. Goulart / Pebegou |
+| 甲龙 Ankylosaurus | 8 m | pikabobalex |
+| 棘龙 Spinosaurus | 14 m | Julian Johnson-Mortimer |
+| 恐手龙 Deinocheirus | 10 m | Julian Johnson-Mortimer |
+| 鲨齿龙 Carcharodontosaurus | 12.5 m | Julian Johnson-Mortimer |
+| 镰刀龙 Therizinosaurus | 10 m | Julian Johnson-Mortimer |
+| 高棘龙 Acrocanthosaurus | 12 m | Julian Johnson-Mortimer |
+| 帝王角龙 Regaliceratops | 5 m | Julian Johnson-Mortimer |
+| 帕卢克西龙 Paluxysaurus（旧名） | 18 m | Julian Johnson-Mortimer |
+| 剑龙 Stegosaurus | 9 m | PAndras |
+| 牛龙 Carnotaurus | 8 m | Cenker Turhan |
+| 迅猛龙 Velociraptor | 1.8 m | Tomas Ibar |
+| 海王龙 Tylosaurus（非恐龙） | 13 m | Julian Johnson-Mortimer |
 
-在模型展馆点“导入 GLB”，选择含嵌入贴图的 `.glb` 文件（最大 50 MB）。模型只在本地浏览器解析，不上传。导入后自动适配展示大小，真实尺寸尚未校准。暂不播放外部模型的动画；示意动作与知识标记仅适用于内置馆藏。
+## 来源与限制
 
-如果 GLB 使用 Draco、Meshopt 或 KTX2 压缩，请先在 Blender/导出工具中生成不依赖外部解码器的普通 GLB。当前导入器不包含这些额外解码器，无法解析时会回到馆藏并显示提示。
+模型作者、许可链接及修改说明见 [ATTRIBUTION.md](./ATTRIBUTION.md) 和 `public/models/credits.json`，页面“模型来源”也可查看。
 
-## 模型、资料与授权
+14 份模型分别采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，森林 HDRI 采用 [CC0](https://polyhaven.com/license)。版权仍属于原作者；使用或再分发模型时，保留作者署名、原作与许可链接，并标明修改。授权以每份资产的原作记录为依据，不能从素材档案库的整体许可推断。
 
-`src/three/models.ts` 使用原创参数化几何与程序化纹理生成三种恐龙。没有使用外部模型、插画、音效或影视角色。模型属于视觉和交互示意，外观、姿态与动作尚未经过古生物学专业审核。
+本次新增资产已做网页优化：简化网格、将贴图转为 WebP（最大 2048 像素），并保留原作署名元数据。牛龙移除了独立岩石；高棘龙和帝王角龙重算法线；帕卢克西龙转换了旧版材质；镰刀龙保留原作的幼体。各文件的实际大小、SHA-256 和完整变更记录见署名文件。
 
-`src/data/dinosaurs.ts` 将科普内容、尺寸和原始资料链接独立管理。资料参考英国自然历史博物馆 Dino Directory，以自己的语言整理。体长采用三角龙 9 米、霸王龙 12 米、腕龙 22 米的代表性估计；不同个体的尺寸可能不同。模型按头尾水平跨度校准，高度为示意。
+模型是艺术复原，尚未经过古生物学专业审核；自然环境只是氛围展示。尺寸按模型姿态中的头尾水平跨度校准，不是严格的骨骼测量。
 
-界面使用系统字体。Three.js、React 和 lucide 等第三方依赖应保留其对应许可证。将来使用外部素材时，请记录参考图与模型的许可、购买凭证和生成时的套餐及条款。
+迅猛龙模型沿用无羽毛的传统艺术造型，与支持羽毛的化石证据存在差异。帕卢克西龙保留模型旧名，其相关材料现通常归入波塞东龙。海王龙属于沧龙科海生爬行动物，并非恐龙。镰刀龙原作中的成幼体组合也不能用来证明特定群居或育幼行为。
 
-## 结构
+电影及《方舟》中的名称可以帮助识别物种，但虚构习性不等于科学事实，作品中的模型、图像和音效也不因此获得使用许可。本馆没有选用已识别为游戏或电影提取物的资产。
 
-- `src/components/`：目录、模型画布、控制、知识面板、说明弹窗。
-- `src/three/ViewerEngine.ts`：相机、光照、渲染、GLB 导入和资源释放。
-- `src/three/models.ts`：原创示意模型。
-- `src/data/dinosaurs.ts`：物种、科普资料和测验数据。
-- `design/concept.png`：内置 ImageGen 生成的主屏视觉参考。
-- `DESIGN.md`：视觉约定与有意差异。
-- `REFERENCES.md`：参考来源、授权说明和排除的素材。
-- `public/references/`：三张写实艺术复原方向图。
+这是免费的实时展示资产，细节与电影级复原仍有差距。旧版二维 AI 参考图保留在 public/references，但当前页面不把它们当作 3D 模型使用。
 
-模型导入不会保存。探索进度仅保留在当前页面会话中。没有账号、支付或 Tripo 在线生成接口。
+当前导入功能不配置 Draco / Meshopt / KTX2 解码器，也不播放任意导入文件的动画。内置资产已经处理为当前加载器支持的格式。
+
+按用户要求，仅运行和修改本地版本。此前线上预览不会自动同步。

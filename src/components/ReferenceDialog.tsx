@@ -3,33 +3,6 @@ import { ExternalLink, X } from "lucide-react";
 import { DINOSAURS, getDinosaur } from "../data/dinosaurs";
 import type { SpeciesId } from "../data/dinosaurs";
 
-const DIRECTION: Record<SpeciesId, { focus: string; details: string[] }> = {
-  triceratops: {
-    focus: "厚重的躯干，角与颈盾的力量感。",
-    details: [
-      "宽阔的头骨与薄而宽的颈盾自然衔接",
-      "较小的眼睛、狭窄的喙与粗壮的四肢",
-      "细鳞、关节褶皱和低饱和的自然肤色",
-    ],
-  },
-  tyrannosaurus: {
-    focus: "水平平衡的身体，强壮的头颌与后肢。",
-    details: [
-      "头部保留骨骼结构感，避免圆润的玩具脸",
-      "短前肢、两根手指与悬空的长尾",
-      "皮肤和颜色为艺术推测，不指定影视造型",
-    ],
-  },
-  brachiosaurus: {
-    focus: "高肩长颈，沉稳的巨型植食动物。",
-    details: [
-      "前肢较长，肩部高于躯干后部",
-      "长颈连接小头，减少夸张的大眼睛",
-      "骨骼材料不完整，外观复原保留不确定性",
-    ],
-  },
-};
-
 export default function ReferenceDialog({
   initialSpecies,
   onClose,
@@ -37,10 +10,9 @@ export default function ReferenceDialog({
   initialSpecies: SpeciesId;
   onClose: () => void;
 }) {
-  const dialog = useRef<HTMLDialogElement>(null),
-    [species, setSpecies] = useState(initialSpecies);
-  const dino = getDinosaur(species),
-    direction = DIRECTION[species];
+  const dialog = useRef<HTMLDialogElement>(null);
+  const [species, setSpecies] = useState(initialSpecies);
+  const dino = getDinosaur(species);
   useEffect(() => {
     const element = dialog.current!;
     element.showModal();
@@ -49,26 +21,26 @@ export default function ReferenceDialog({
   return (
     <dialog
       ref={dialog}
-      className="reference-dialog"
+      className="reference-dialog asset-dialog"
       aria-labelledby="reference-title"
       onCancel={onClose}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
       }}
     >
       <button
         className="dialog-close"
         onClick={onClose}
-        aria-label="关闭图例参考"
+        aria-label="关闭模型来源"
         autoFocus
       >
         <X size={22} />
       </button>
       <div className="reference-header">
-        <h2 id="reference-title">向真实的史前世界靠近</h2>
-        <p>博物馆式复原方向 · 图例与比例参考</p>
+        <h2 id="reference-title">每一份模型，都有来处</h2>
+        <p>3D 资产作者、许可与科普资料</p>
       </div>
-      <nav className="reference-tabs" aria-label="选择参考物种">
+      <nav className="reference-tabs" aria-label="选择模型来源">
         {DINOSAURS.map((d) => (
           <button
             key={d.id}
@@ -80,68 +52,55 @@ export default function ReferenceDialog({
           </button>
         ))}
       </nav>
-      <div className="reference-layout">
-        <figure className="reference-image">
-          <img
-            src={`/references/${species}.png`}
-            alt={`${dino.name}的写实外观方向参考，AI 生成的艺术复原图`}
-          />
-          <figcaption>
-            AI
-            生成的艺术复原图，用于视觉方向参考；尚未经过专业科学审核。这是一张参考图，交互模型在展馆中。
-          </figcaption>
-        </figure>
-        <div className="reference-details">
-          <h3>
-            {dino.name}
-            <em>{dino.latin}</em>
-          </h3>
-          <p className="reference-focus">{direction.focus}</p>
-          <ul>
-            {direction.details.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-          <h4>继续查阅</h4>
-          <div className="reference-sources">
-            <a href={dino.source} target="_blank" rel="noreferrer">
-              <strong>自然历史博物馆</strong>
-              <span>物种知识与代表性尺寸</span>
-              <ExternalLink size={14} />
-            </a>
-            <a
-              href={`https://dinosaurpictures.org/${dino.latin}-pictures`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <strong>Dinosaur Pictures</strong>
-              <span>多种外观图例，需追溯原作者</span>
-              <ExternalLink size={14} />
-            </a>
-            <a
-              href="https://www.skeletaldrawing.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <strong>Scott Hartman</strong>
-              <span>骨骼轮廓、比例与复原说明</span>
-              <ExternalLink size={14} />
-            </a>
-            <a
-              href="https://www.amnh.org/dinosaurs/types-of-dinosaurs"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <strong>美国自然历史博物馆</strong>
-              <span>化石与展馆中的身体结构</span>
-              <ExternalLink size={14} />
-            </a>
-          </div>
-          <p className="reference-rights">
-            第三方资料以链接提供。原始插画、照片与模型的商用、转载或 AI
-            输入权限需分别核对。
-          </p>
+      <div className="reference-details asset-details">
+        <h3>
+          {dino.name}
+          <em>{dino.latin}</em>
+        </h3>
+        <p className="reference-focus">{dino.asset.title}</p>
+        <p className="asset-author">作者：{dino.asset.author}</p>
+        <div className="reference-sources">
+          <a href={dino.asset.url} target="_blank" rel="noreferrer">
+            <strong>原始模型 · Sketchfab</strong>
+            <span>查看作者作品与许可</span>
+            <ExternalLink size={14} />
+          </a>
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <strong>Creative Commons Attribution 4.0</strong>
+            <span>署名许可（CC BY 4.0）</span>
+            <ExternalLink size={14} />
+          </a>
+          <a href={dino.source} target="_blank" rel="noreferrer">
+            <strong>物种科普资料</strong>
+            <span>物种知识与代表性尺寸</span>
+            <ExternalLink size={14} />
+          </a>
+          <a
+            href="https://polyhaven.com/a/forest_slope"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <strong>Forest Slope · Andreas Mischok / Poly Haven</strong>
+            <span>森林环境光 · CC0</span>
+            <ExternalLink size={14} />
+          </a>
         </div>
+        <p className="reference-rights">
+          模型副本来自 Objaverse
+          公开归档，并与作者页面的许可核对。本站调整了显示材质、比例、朝向与灯光，部分模型简化网格、压缩贴图或重算法线；霸王龙从原场景提取并恢复为静态站姿，牛龙移除了独立岩石。详细修改记录见下方资产清单。模型属于艺术复原，颜色、软组织与姿态存在推测，科学证据说明见各物种档案。
+        </p>
+        <a
+          className="asset-manifest-link"
+          href="/models/credits.json"
+          target="_blank"
+          rel="noreferrer"
+        >
+          查看完整资产与修改清单 <ExternalLink size={14} />
+        </a>
       </div>
     </dialog>
   );

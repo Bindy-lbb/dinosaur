@@ -190,17 +190,21 @@ p {
 .species-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
   margin-top: 27px;
+  max-height: clamp(350px, calc(100svh - 370px), 700px);
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 .species-row {
   display: flex;
   align-items: center;
   text-align: left;
   width: 100%;
-  padding: 19px 17px;
+  padding: 10px 17px;
   gap: 13px;
-  min-height: 96px;
+  min-height: 76px;
+  flex-shrink: 0;
   border-radius: 11px;
 }
 .species-row.selected {
@@ -229,10 +233,13 @@ p {
   font-size: 14px;
   color: #677e6c;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dino-icon {
   width: 74px;
   height: 58px;
+  flex-shrink: 0;
   color: #7e9080;
 }
 .species-row.selected .dino-icon {
@@ -286,6 +293,10 @@ p {
   line-height: 1.18;
   letter-spacing: 3px;
 }
+.viewer-heading > div:first-child {
+  min-width: 0;
+  padding-right: 14px;
+}
 .viewer-heading p {
   font-family: Georgia, serif;
   font-size: 28px;
@@ -293,6 +304,9 @@ p {
   font-style: italic;
   color: #758379;
   margin-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .specimen-number {
   font-family: Georgia, serif;
@@ -1027,7 +1041,7 @@ p {
   }
   .species-row {
     gap: 9px;
-    padding: 16px 10px;
+    padding: 10px 10px;
   }
   .species-copy strong {
     font-size: 18px;
@@ -1203,11 +1217,12 @@ p {
   }
   .comparison-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
     max-width: 700px;
   }
   .comparison-item {
-    flex: 1;
+    flex: 1 1 180px;
     margin-bottom: 0;
   }
   .comparison-callout {
@@ -1295,11 +1310,16 @@ p {
     margin-top: 13px;
     padding: 0 18px;
     overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 18px;
     scrollbar-width: thin;
   }
   .species-row {
-    flex: 1;
-    min-width: 0;
+    flex: 0 0 132px;
+    min-width: 132px;
+    scroll-snap-align: start;
     padding: 12px 11px;
     min-height: 66px;
     gap: 8px;
@@ -1543,6 +1563,7 @@ p {
 }
 .reference-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 22px;
   border-bottom: 1px solid var(--line);
   margin-top: 23px;
@@ -1676,5 +1697,127 @@ p {
   }
   .viewer-heading-actions {
     gap: 10px;
+  }
+}
+.habitat-controls {
+  position: absolute;
+  z-index: 3;
+  top: 163px;
+  left: 42px;
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid #ccd3c4;
+  border-radius: 30px;
+  background: #f6f4eceb;
+}
+.habitat-controls button {
+  padding: 8px 14px;
+  min-height: 36px;
+  border-radius: 24px;
+  font-size: 12px;
+}
+.habitat-controls button.active {
+  background: #173e31;
+  color: #fff;
+}
+.forested {
+  background: #344638;
+}
+.forested .viewer-heading {
+  color: #fffbea;
+  text-shadow: 0 2px 13px #132019bd;
+}
+.forested .viewer-heading p,
+.forested .specimen-number small {
+  color: #e6e9dc;
+}
+.forested .reference-button {
+  color: #173e31;
+  text-shadow: none;
+}
+.forested .viewer-controls {
+  background: linear-gradient(transparent, #172719c9);
+  padding-top: 50px;
+  color: #fffbea;
+}
+.forested .viewer-hint {
+  color: #eff3e6;
+}
+.forested .pill-control,
+.forested .toggle-control {
+  background: #f6f4eceb;
+  color: #173e31;
+}
+.forested .toggle-control {
+  border-radius: 24px;
+  padding: 8px 12px;
+}
+.static-specimen {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.asset-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #f6f4ec;
+  color: #173e31;
+  font-size: 14px;
+}
+.asset-loading span {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #b9c2af;
+  border-top-color: #173e31;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.model-credit {
+  margin-top: 20px;
+  font-size: 11px;
+  color: #61745f;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.model-credit a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.asset-dialog {
+  max-width: 690px;
+}
+.asset-details {
+  margin-top: 24px;
+}
+.asset-author {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 600px) {
+  .habitat-controls {
+    top: 124px;
+    left: 24px;
+  }
+  .habitat-controls button {
+    padding: 5px 11px;
+    min-height: 32px;
+    font-size: 11px;
+  }
+  .forested .viewer-controls {
+    padding-top: 38px;
+  }
+  .forested .toggle-control {
+    padding: 7px 8px;
   }
 }
