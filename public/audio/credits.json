@@ -1,0 +1,62 @@
+[
+  {
+    "file": "/audio/deep-roar.wav",
+    "title": "CC0 Deep Monster Roar",
+    "author": "trazzz123",
+    "source": "https://opengameart.org/content/cc0-deep-monster-roar",
+    "download": "https://opengameart.org/sites/default/files/monster_roar.wav",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "checkedDate": "2026-10-13",
+    "bytes": 346660,
+    "sha256": "8e56547b0b6000367afe854dc2765e174590361a41cd341d560e7d5f9cbace52",
+    "changes": "Decoded and resampled to mono 24 kHz PCM WAV, peak normalized (calls 0.8; ambience 0.6), 20 ms endpoint fades. Runtime gain adjustment; species-specific call playback rate and pitch; looping ambience. Artistic sound design, not scientific vocal reconstruction.",
+    "sourceSha256": "040d2841619c732098c30a638731317d13d7647e5ce1a75a3246219ce4b162ff",
+    "duration": 7.221166666666667
+  },
+  {
+    "file": "/audio/raspy-call.wav",
+    "title": "Small Dino Raspy Calls",
+    "author": "CaveboyTup",
+    "source": "https://opengameart.org/content/small-dino-raspy-calls",
+    "download": "https://opengameart.org/sites/default/files/small_dino_raspy_calls_0.mp3",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "checkedDate": "2026-10-13",
+    "bytes": 83678,
+    "sha256": "2e9aba5e59390e5c6af20421879d15173a5bbc21ddf24e27d8badc4a9c634ab2",
+    "changes": "Decoded and resampled to mono 24 kHz PCM WAV, peak normalized (calls 0.8; ambience 0.6), 20 ms endpoint fades. Runtime gain adjustment; species-specific call playback rate and pitch; looping ambience. Artistic sound design, not scientific vocal reconstruction.",
+    "sourceSha256": "344b1aa510e52c282ef7e0fbac1531fddcb2d8d03f700310cc4d4cab48cde74e",
+    "duration": 1.742375
+  },
+  {
+    "file": "/audio/forest-ambience.wav",
+    "title": "Forest Ambience",
+    "author": "TinyWorlds",
+    "source": "https://opengameart.org/node/23888",
+    "download": "https://opengameart.org/sites/default/files/Forest_Ambience_0.mp3",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "checkedDate": "2026-10-13",
+    "bytes": 2147372,
+    "sha256": "ee74b1d238b87a7aa5f79552c038311f7333b40540d40e52ef5e40ba77903476",
+    "changes": "Decoded and resampled to mono 24 kHz PCM WAV, peak normalized (calls 0.8; ambience 0.6), 20 ms endpoint fades. Runtime gain adjustment; species-specific call playback rate and pitch; looping ambience. Artistic sound design, not scientific vocal reconstruction.",
+    "sourceSha256": "9850aa1d0d5d66bd9c5daf8bb77c6d852e01f2f4de22f283bd5621e8bed13b75",
+    "duration": 44.736
+  },
+  {
+    "file": "/audio/water-waves.wav",
+    "title": "Water Waves (wave 01)",
+    "author": "transitking; excerpt by qubodup",
+    "source": "https://opengameart.org/content/water-waves",
+    "download": "https://opengameart.org/sites/default/files/wave_01_cc0-11505__transitking__wavesound.flac",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "checkedDate": "2026-10-13",
+    "bytes": 84044,
+    "sha256": "c02edfdb6627b824f022f465025a7cc04722235b83dda42736dd9a2ed1cfa0dc",
+    "changes": "Decoded and resampled to mono 24 kHz PCM WAV, peak normalized (calls 0.8; ambience 0.6), 20 ms endpoint fades. Runtime gain adjustment; species-specific call playback rate and pitch; looping ambience. Artistic sound design, not scientific vocal reconstruction.",
+    "sourceSha256": "0bd84b2061a82c234470bd4e16efc6ab24851928d3f93e1757bfea048b2d7a33",
+    "duration": 1.75
+  }
+]

@@ -61,6 +61,13 @@ export default function HelpDialog({ onClose }: { onClose: () => void }) {
         </li>
       </ol>
       <div className="dialog-note">
+        <strong>声音体验</strong>
+        <p>
+          点击展品标题下方的叫声按钮，或开启林间 /
+          海浪氛围。音量设置可统一静音；切换物种、模式或离开页面会停止声音。音效采用
+          CC0
+          素材进行艺术演绎，不能作为真实恐龙叫声的证据；作者和许可可在音量设置中查看。
+        </p>
         <strong>关于模型与资料</strong>
         <p>
           馆藏使用作者公开提供的 CC BY

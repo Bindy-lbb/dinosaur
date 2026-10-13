@@ -14,6 +14,7 @@ import InfoPanel from "./components/InfoPanel";
 import ViewerControls from "./components/ViewerControls";
 import HelpDialog from "./components/HelpDialog";
 import ReferenceDialog from "./components/ReferenceDialog";
+import SoundControls from "./components/SoundControls";
 import { SPECIES_PROFILES } from "./data/speciesProfiles";
 import {
   recordViewed,
@@ -278,6 +279,14 @@ export default function App() {
           ) : null}
           {mode !== "compare" && marine ? (
             <p className="marine-badge">海生爬行动物 · 非恐龙 · 标本展示</p>
+          ) : null}
+          {mode !== "compare" && !file ? (
+            <SoundControls
+              key={`${species}-${mode}`}
+              species={species}
+              name={dino.name}
+              marine={marine}
+            />
           ) : null}
           {mode === "compare" ? (
             <div className="compare-presets" aria-label="快速比较">

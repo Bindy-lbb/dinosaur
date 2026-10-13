@@ -171,3 +171,18 @@ Source: https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/forest_slope_2k.hdr
 The modern forest HDRI is a lighting backdrop, not a scientific reconstruction of a Jurassic or Cretaceous habitat.
 
 The machine-readable record is `public/models/credits.json`.
+
+## Sound effects and ambience
+
+All four audio assets are offered under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) on their individual OpenGameArt pages, checked 2026-10-13:
+
+| Local file | Original work | Author |
+| --- | --- | --- |
+| `public/audio/deep-roar.wav` | [CC0 Deep Monster Roar](https://opengameart.org/content/cc0-deep-monster-roar) | trazzz123 |
+| `public/audio/raspy-call.wav` | [Small Dino Raspy Calls](https://opengameart.org/content/small-dino-raspy-calls) | CaveboyTup |
+| `public/audio/forest-ambience.wav` | [Forest Ambience](https://opengameart.org/node/23888) | TinyWorlds |
+| `public/audio/water-waves.wav` | [Water Waves, wave 01](https://opengameart.org/content/water-waves) | transitking; excerpt by qubodup |
+
+Files were decoded and resampled to mono 24 kHz PCM WAV, peak-normalized (calls: 0.8; ambience: 0.6), and given 20 ms endpoint fades. Calls use species-specific playback rates (including pitch changes) and gains; ambience uses quieter looping playback. The raspy call was described by its creator as synthesized from CC0 horse snorts. These are artistic sound-design choices, not recordings of dinosaurs or evidence for their real vocalizations. Ambient audio is atmosphere, not a scientific reconstruction of a prehistoric habitat. No movie or ARK audio was used.
+
+Source download URLs, licenses, sizes and SHA-256 hashes are recorded in `public/audio/credits.json`. The in-app volume panel links to the current sound creators and the full manifest.

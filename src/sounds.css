@@ -1,0 +1,141 @@
+.sound-controls {
+  position: absolute;
+  top: 218px;
+  left: 43px;
+  z-index: 4;
+  color: #173e32;
+  max-width: calc(100% - 65px);
+}
+.sound-actions {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+}
+.sound-actions > button,
+.sound-settings > summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #c1cabb;
+  border-radius: 24px;
+  background: #f6f4ecee;
+  font-size: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+.sound-settings > summary {
+  list-style: none;
+  width: 40px;
+  padding: 8px;
+}
+.sound-settings > summary::-webkit-details-marker {
+  display: none;
+}
+.sound-actions > button.sound-active {
+  background: #1b4c3b;
+  color: #fff;
+  border-color: #1b4c3b;
+}
+.sound-actions > button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.sound-actions button:focus-visible,
+.sound-settings summary:focus-visible {
+  outline: 2px solid #b89948;
+  outline-offset: 3px;
+}
+.sound-caption {
+  font-size: 11px;
+  margin: 7px 0 0 3px;
+  color: #62715f;
+  max-width: 300px;
+  line-height: 1.5;
+}
+.forested .sound-caption {
+  color: #fff7e5;
+  text-shadow: 0 1px 3px #102f22;
+}
+.sound-popover {
+  position: absolute;
+  left: 0;
+  top: 48px;
+  width: 300px;
+  max-width: 100%;
+  background: #f8f6ee;
+  box-shadow: 0 12px 40px #102d2233;
+  border: 1px solid #cbd2c4;
+  border-radius: 14px;
+  padding: 18px;
+  color: #173e32;
+}
+.sound-volume-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.sound-volume-title button {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: #e5eadf;
+  font-size: 12px;
+}
+.sound-popover input {
+  width: 100%;
+  height: 30px;
+  accent-color: #1b4c3b;
+  margin: 10px 0;
+}
+.sound-popover p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #63715f;
+}
+.sound-credits {
+  display: grid;
+  gap: 9px;
+  border-top: 1px solid #d7dcce;
+  margin-top: 12px;
+  padding-top: 12px;
+  font-size: 11px;
+}
+.sound-credits a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: underline;
+  line-height: 1.5;
+}
+.sound-credits svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .sound-controls {
+    top: 178px;
+    left: 23px;
+    max-width: calc(100% - 46px);
+  }
+  .sound-actions {
+    gap: 6px;
+  }
+  .sound-actions > button {
+    min-height: 36px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .sound-settings > summary {
+    min-height: 36px;
+    width: 36px;
+  }
+  .sound-caption {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+}
