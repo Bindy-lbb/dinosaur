@@ -161,7 +161,7 @@ export default function App() {
       <header className="app-header">
         <a
           className="brand"
-          href="/?demo=museum"
+          href={`${import.meta.env.BASE_URL}?demo=museum`}
           aria-label="PALEO 史前档案首页"
         >
           <span>PALEO</span>

@@ -2,25 +2,25 @@ import type { SpeciesId } from "./dinosaurs";
 
 export const SOUND_SOURCES = {
   roar: {
-    file: "/audio/deep-roar.wav",
+    file: `${import.meta.env.BASE_URL}audio/deep-roar.wav`,
     title: "CC0 Deep Monster Roar",
     author: "trazzz123",
     url: "https://opengameart.org/content/cc0-deep-monster-roar",
   },
   rasp: {
-    file: "/audio/raspy-call.wav",
+    file: `${import.meta.env.BASE_URL}audio/raspy-call.wav`,
     title: "Small Dino Raspy Calls",
     author: "CaveboyTup",
     url: "https://opengameart.org/content/small-dino-raspy-calls",
   },
   forest: {
-    file: "/audio/forest-ambience.wav",
+    file: `${import.meta.env.BASE_URL}audio/forest-ambience.wav`,
     title: "Forest Ambience",
     author: "TinyWorlds",
     url: "https://opengameart.org/node/23888",
   },
   ocean: {
-    file: "/audio/water-waves.wav",
+    file: `${import.meta.env.BASE_URL}audio/water-waves.wav`,
     title: "Water Waves",
     author: "transitking / qubodup",
     url: "https://opengameart.org/content/water-waves",

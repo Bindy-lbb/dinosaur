@@ -234,7 +234,7 @@ export default function SoundControls({
                   <ExternalLink size={12} />
                 </a>
               ))}
-              <a href="/audio/credits.json" target="_blank" rel="noreferrer">
+              <a href={`${import.meta.env.BASE_URL}audio/credits.json`} target="_blank" rel="noreferrer">
                 完整音效清单与许可 <ExternalLink size={12} />
               </a>
             </div>

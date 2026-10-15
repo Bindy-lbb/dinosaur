@@ -95,7 +95,7 @@ export default function ReferenceDialog({
         </p>
         <a
           className="asset-manifest-link"
-          href="/models/credits.json"
+          href={`${import.meta.env.BASE_URL}models/credits.json`}
           target="_blank"
           rel="noreferrer"
         >

@@ -115,7 +115,7 @@ export class ViewerEngine {
   private async loadEnvironment() {
     try {
       const texture = await new HDRLoader().loadAsync(
-        "/environment/forest_slope_2k.hdr",
+        `${import.meta.env.BASE_URL}environment/forest_slope_2k.hdr`,
       );
       if (this.stopped) {
         texture.dispose();

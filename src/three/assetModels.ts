@@ -11,7 +11,7 @@ export interface LoadedDinosaur {
 const buffers = new Map<string, Promise<ArrayBuffer>>();
 
 export async function loadDinosaur(dino: Dinosaur): Promise<LoadedDinosaur> {
-  const url = `/models/${dino.id}.glb`;
+  const url = `${import.meta.env.BASE_URL}models/${dino.id}.glb`;
   if (!buffers.has(url)) {
     buffers.set(
       url,
