@@ -4,7 +4,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/Bindy-lbb/dinosaur/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bindy-lbb/dinosaur/actions/workflows/deploy.yml)
 
-**[在线体验](https://bindy-lbb.github.io/dinosaur/)** · [项目源码](https://github.com/Bindy-lbb/dinosaur) · [素材署名](./ATTRIBUTION.md) · [科普参考](./REFERENCES.md)
+**[在线体验](https://bindy-lbb.github.io/dinosaur/)** · [项目源码](https://github.com/Bindy-lbb/dinosaur) · [MIT 许可证](./LICENSE) · [素材署名](./ATTRIBUTION.md) · [科普参考](./REFERENCES.md)
 
 纯前端交互式 3D 科普展馆，基于 React、TypeScript、Three.js 和 Vite。内置 14 个带纹理的馆藏条目，无需注册或配置 API Key。
 
@@ -178,7 +178,18 @@ Fork 后部署时，在自己的仓库开启 Pages，并将 README 中的仓库�
 
 当前导入功能不配置 Draco / Meshopt / KTX2 解码器，也不播放任意导入文件的动画。内置资产已经处理为当前加载器支持的格式。
 
-仓库公开可供浏览，但当前未为项目代码指定开源许可证；第三方素材按各自许可使用，不能将其统一视为项目代码的授权。
+## 许可证
+
+项目原创代码与文档采用 [MIT License](./LICENSE)，版权所有 © 2026 Bindy-lbb。使用或分发代码时，请保留版权声明与 MIT 许可声明。
+
+第三方素材继续遵循各自的许可，MIT 许可证不改变它们的授权：
+
+- **3D 模型及内嵌贴图：CC BY 4.0**。保留作者署名、原作链接、许可链接与修改说明，详见 [ATTRIBUTION.md](./ATTRIBUTION.md) 和 [模型清单](./public/models/credits.json)。
+- **音效与森林 HDRI：CC0**。原作、作者和许可记录保留在 [音效清单](./public/audio/credits.json) 与 [ATTRIBUTION.md](./ATTRIBUTION.md) 中。
+- **页面截图与导出图中的第三方素材**仍遵循对应素材的许可；分享包含模型的截图时，也请保留相关署名与许可信息。
+- **第三方依赖**遵循各软件包自身的许可证。
+
+完整适用范围见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)。
 
 ## 常见问题
 
